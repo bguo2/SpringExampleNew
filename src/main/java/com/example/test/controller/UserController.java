@@ -38,7 +38,7 @@ public class UserController {
         //HATEOAS
         Link selfLink = linkTo(methodOn(UserController.class).getUsers(id)).withSelfRel();
 
-        //List<User> jpaResult = userJpaRepository.findAllUsers();
+        //List<User> jpaResult = userJpaRepository.findAll();
         return ResponseEntity.ok(CollectionModel.of(result, selfLink));
     }
 }

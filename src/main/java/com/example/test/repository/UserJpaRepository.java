@@ -11,10 +11,12 @@ import java.util.List;
 @Repository
 //not working
 public interface UserJpaRepository extends JpaRepository<User, Long> {
-
+/*
     @Query(value="select u.* from user u where u.departmentId = ?1", nativeQuery = true)
     List<User> findByDepartmentId(Long departmentId);
 
     @Query(value="select * from user", nativeQuery = true)
     List<User> findAllUsers();
+
+ */
 }
