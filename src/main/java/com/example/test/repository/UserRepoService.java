@@ -1,4 +1,4 @@
-package com.example.test.dao;
+package com.example.test.repository;
 
 import com.example.test.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class UserDaoService {
+public class UserRepoService {
     private NamedParameterJdbcTemplate template;
 
     @Autowired
-    public UserDaoService(DataSource source) {
+    public UserRepoService(DataSource source) {
         template = new NamedParameterJdbcTemplate(source);
     }
 
