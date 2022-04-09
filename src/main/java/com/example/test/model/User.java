@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -28,4 +29,7 @@ public class User {
 
     @Column(name="DepartmentId")
     private Long departmentId;
+
+    @Column(name="creationDate")
+    private Timestamp creationDate;
 }

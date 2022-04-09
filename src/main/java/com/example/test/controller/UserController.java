@@ -28,7 +28,7 @@ public class UserController {
         this.userJpaRepository = userJpaRepository;
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/users", params = "id")
     public ResponseEntity<CollectionModel<User>> getUsers(@RequestParam long id) {
         List<User> result = userRepoService.getAllUsers(id);
 
@@ -38,7 +38,7 @@ public class UserController {
         //List<User> jpaResult = userJpaRepository.findAll();
         return ResponseEntity.ok(CollectionModel.of(result, selfLink));
     }
-    @PostMapping(value = "/user/update")
+    @PostMapping(value = "/user/update", params = "id")
     public ResponseEntity<Boolean> updateUser(@RequestParam long id) {
         Boolean result = userRepoService.insert(id);
         return ResponseEntity.ok(result);
