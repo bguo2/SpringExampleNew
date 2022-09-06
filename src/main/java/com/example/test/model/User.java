@@ -7,15 +7,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "Id", nullable = false)
     private Long id;
 
     @Column(name="FirstName")

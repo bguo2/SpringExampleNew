@@ -3,7 +3,6 @@ package com.example.test.repository;
 import com.example.test.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -12,7 +11,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
-import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -22,13 +20,13 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class UserRepoService {
+public class UserJdbcRepoService {
     private int count = 0;
     private NamedParameterJdbcTemplate template;
     private PlatformTransactionManager platformTransactionManager;
 
     @Autowired
-    public UserRepoService(DataSource source) {
+    public UserJdbcRepoService(DataSource source) {
         DataSourceTransactionManager  transactionManager = new DataSourceTransactionManager(source);
         template = new NamedParameterJdbcTemplate(transactionManager.getDataSource());
         platformTransactionManager = transactionManager;

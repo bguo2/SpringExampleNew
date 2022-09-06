@@ -2,6 +2,14 @@
 spring:
   profiles:
     active: dev
+  jpa:
+    hibernate:
+      database-platform: org.hibernate.dialect.MYSQL5Dialect
+      ddl-auto: none
+      show-sql: true
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 server:
   servlet:
     context-path: "/api"

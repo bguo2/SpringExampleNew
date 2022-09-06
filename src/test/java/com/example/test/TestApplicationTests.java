@@ -1,7 +1,7 @@
 package com.example.test;
 
 import com.example.test.model.User;
-import com.example.test.repository.UserRepoService;
+import com.example.test.repository.UserJdbcRepoService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,27 +17,15 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-//@PrepareForTest() class to mock
 @Slf4j
 class TestApplicationTests {
 
     @Mock
-    private UserRepoService userRepoService;
-
-    @BeforeEach
-    public void setup() {
-        log.info("setup");
-        //PowerMockito.spy() //class instance to initialize
-    }
+    private UserJdbcRepoService userJdbcRepoService;
 
     @Test
     void test1() {
-        List<User> users = new ArrayList<>() {{
-            add(new User());
-        }};
-        when(userRepoService.getAllUsers(anyLong())).thenReturn(users);
-        List<User> result = userRepoService.getAllUsers(3L);
-        assertTrue("users should not empty", !result.isEmpty());
+
     }
 
 }
